@@ -1,7 +1,9 @@
+import Link from "next/link";
+import Router from "next/router";
 //Styles
-import Button from "../Button";
 import { Wrapper, Content, Info } from "./About.styles";
 //Components
+import Button from "../Button";
 
 const About = () => {
   return (
@@ -18,7 +20,12 @@ const About = () => {
             ac,
           </p>
         </Info>
-        <Button text="About" />
+        <Button
+          text="About"
+          onClick={() => {
+            Router.push("/about-us");
+          }}
+        />
       </Content>
     </Wrapper>
   );

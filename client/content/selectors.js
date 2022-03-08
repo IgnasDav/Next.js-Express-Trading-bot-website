@@ -1,0 +1,12 @@
+export const getBTCPrice = (state) => state.content.coinPrices.BTC.price;
+export const getUSDTPrice = (state) => state.content.coinPrices.USDT.price;
+export const getETHPrice = (state) => state.content.coinPrices.ETH.price;
+export const getADAPrice = (state) => state.content.coinPrices.ADA.price;
+export const getBTCError = (state) => state.content.coinPrices.BTC.price;
+export const getUSDTError = (state) => state.content.coinPrices.USDT.price;
+export const getETHError = (state) => state.content.coinPrices.ETH.price;
+export const getADAError = (state) => state.content.coinPrices.ADA.price;
+export const getBTCData = (state) => state.content.coin.data.BTC;
+export const getADAData = (state) => state.content.coin.data.ADA;
+export const getETHData = (state) => state.content.coin.data.ETH;
+export const getUSDTData = (state) => state.content.coin.data.USDT;

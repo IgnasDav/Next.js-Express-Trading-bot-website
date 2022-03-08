@@ -28,6 +28,7 @@ export const Nav = styled.nav`
       margin-right: 3.2rem;
       width: 100%;
       p {
+        cursor: pointer;
         position: relative;
         display: inline-block;
         font-size: 2.4rem;
@@ -45,11 +46,9 @@ export const Nav = styled.nav`
         transition: background 0.2s ease-out;
         white-space: nowrap;
       }
-
       span {
         position: relative;
       }
-
       span:before {
         content: "";
         position: absolute;
@@ -60,12 +59,10 @@ export const Nav = styled.nav`
         bottom: 5px;
         transition: all 0.2s ease-out;
       }
-
       p:hover {
         background-position: 0 11px;
         color: var(--pink);
       }
-
       span:hover:before {
         transform: translateY(20px);
       }
@@ -79,6 +76,9 @@ export const Nav = styled.nav`
       transition: all 0.2s ease-out;
       border-radius: 50%;
       cursor: pointer;
+      .icon {
+        height: 3rem;
+      }
     }
     .moon:hover {
       background: linear-gradient(
@@ -91,7 +91,7 @@ export const Nav = styled.nav`
     }
   }
 `;
-export const Logo = styled.img`
+export const Logo = styled.div`
   height: 12rem;
   margin-top: 5rem;
   width: 12rem;

@@ -63,11 +63,9 @@ export const SitemapNav = styled.ul`
   font-size: 3.6rem;
   li {
     margin-bottom: 1rem;
-    a {
-    }
     p {
       color: var(--white);
-
+      cursor: pointer;
       position: relative;
       display: inline-block;
       background: linear-gradient(
@@ -114,7 +112,7 @@ export const InfoDiv = styled.div`
   display: grid;
   grid-template-rows: 20rem 1fr;
 `;
-export const Logo = styled.img`
+export const Logo = styled.div`
   height: 16rem;
   width: 16rem;
   margin-bottom: 2.5rem;
@@ -130,10 +128,12 @@ export const Info = styled.div`
     font-size: 3.6rem;
     margin-bottom: 3rem;
     text-align: end;
+
     .icon {
-      margin-right: 0.5rem;
+      margin-right: 1.5rem;
       transition: all 0.2s;
       color: var(--pink);
+      height: 4rem;
     }
     :hover {
       color: var(--pink);

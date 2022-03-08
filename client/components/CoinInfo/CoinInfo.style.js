@@ -57,7 +57,9 @@ export const LogoPic = styled.img`
   margin: 0 1rem 0 1rem;
 `;
 export const Graph = styled.div`
-  img {
-    height: 5rem;
-  }
+  /* div > svg > g {
+    height: 1px;
+    display: flex;
+    align-items: center;
+  } */
 `;

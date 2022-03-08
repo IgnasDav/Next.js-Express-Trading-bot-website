@@ -1,6 +1,8 @@
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import LogoImg from "../../images/Logo.png";
+import LogoImg from "../../public/images/Logo.png";
+import Link from "next/link";
+import Image from "next/image";
 //Component
 import Button from "../Button";
 //styles
@@ -40,36 +42,47 @@ const FooterInfo = () => {
         <Sitemap>
           <h3>Sitemap</h3>
           <SitemapNav>
-            <li>
-              <span>
-                <p>Home</p>
-              </span>
-            </li>
-            <li>
-              <span>
-                <p>Coins</p>
-              </span>
-            </li>
-            <li>
-              <span>
-                <p>Bots</p>
-              </span>
-            </li>
-            <li>
-              <span>
-                <p>Contact</p>
-              </span>
-            </li>
-            <li>
-              <span>
-                <p>About us</p>
-              </span>
-            </li>
+            <Link href={"/"}>
+              <li>
+                <span>
+                  <p>Home</p>
+                </span>
+              </li>
+            </Link>
+            <Link href={"/coins"}>
+              <li>
+                <span>
+                  <p>Coins</p>
+                </span>
+              </li>
+            </Link>
+            <Link href={"/bots"}>
+              <li>
+                <span>
+                  <p>Bots</p>
+                </span>
+              </li>
+            </Link>
+            <Link href={"/contact"}>
+              <li>
+                <span>
+                  <p>Contact</p>
+                </span>
+              </li>
+            </Link>
+            <Link href={"/about-us"}>
+              <li>
+                <span>
+                  <p>About us</p>
+                </span>
+              </li>
+            </Link>
           </SitemapNav>
         </Sitemap>
         <InfoDiv>
-          <Logo src={LogoImg} />
-          <img src={LogoImg}></img>
+          <Logo>
+            <Image src={LogoImg} alt="Logo image" />
+          </Logo>
           <Info>
             <a href="tel:+37060000000">
               <span>

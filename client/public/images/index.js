@@ -4,3 +4,7 @@ export const BTCLogo =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/BTC_Logo.svg/2000px-BTC_Logo.svg.png";
 export const BTCGraph =
   "https://cloudfront-us-east-1.images.arcpublishing.com/coindesk/2MKEHW6MJFB7VGD353DCQSCEB4.png";
+export const ETHLogo =
+  "https://download.logo.wine/logo/Ethereum/Ethereum-Logo.wine.png";
+export const USDTLogo = "https://cryptologos.cc/logos/tether-usdt-logo.png";
+export const ADALogo = "https://cryptologos.cc/logos/cardano-ada-logo.png";

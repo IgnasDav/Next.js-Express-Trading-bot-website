@@ -1,3 +1,4 @@
+import Router from "next/router";
 //Styles
 import { Wrapper, Title, Info, Content, MaxWidth } from "./WhyUse.style";
 //Components
@@ -34,7 +35,12 @@ const WhyUse = () => {
             </p>
           </Info>
         </Content>
-        <Button text="Why use us?" />
+        <Button
+          text="Why use us?"
+          onClick={() => {
+            Router.push("/why-use");
+          }}
+        />
       </MaxWidth>
     </Wrapper>
   );

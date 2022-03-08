@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 //Image
-import { backgroundImage } from "./images";
+import { backgroundImage } from "./public/images/index.js";
+
 const GlobalStyle = createGlobalStyle`
 :root{
     --black: #000;

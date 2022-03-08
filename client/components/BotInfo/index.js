@@ -1,3 +1,5 @@
+import Router from "next/router";
+
 //Styles
 import {
   Wrapper,
@@ -32,7 +34,13 @@ const BotInfo = () => {
             <BotInfoDetailsLoss>Bots Total Loss: - $5111111</BotInfoDetailsLoss>
           </BotInfoDetails>
         </BotInfoDiv>
-        <Button text="More About Bots" color="#4CC9F0" />
+        <Button
+          text="More About Bots"
+          color="#4CC9F0"
+          onClick={() => {
+            Router.push("/bots");
+          }}
+        />
       </Content>
     </Wrapper>
   );

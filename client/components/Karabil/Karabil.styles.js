@@ -26,16 +26,13 @@ export const Content = styled.a`
     );
     background-clip: text;
     -webkit-background-clip: text;
-    /* color: transparent; */
     background-repeat: no-repeat;
     transition: background 0.2s ease-out;
     white-space: nowrap;
   }
-
   span {
     position: relative;
   }
-
   span:before {
     content: "";
     position: absolute;
@@ -46,12 +43,10 @@ export const Content = styled.a`
     bottom: 5px;
     transition: all 0.2s ease-out;
   }
-
   p:hover {
     background-position: 0 11px;
     color: var(--pink);
   }
-
   span:hover:before {
     transform: translateY(20px);
   }

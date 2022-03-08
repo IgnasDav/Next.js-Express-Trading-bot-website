@@ -9,9 +9,10 @@ const Button = ({
   className,
   square,
   type = "button",
+  onClick = () => {},
 }) => {
   return (
-    <Wrapper color={color} className={className} type={type}>
+    <Wrapper color={color} className={className} type={type} onClick={onClick}>
       <p>{text}</p>
       {!square && (
         <Arrow>
