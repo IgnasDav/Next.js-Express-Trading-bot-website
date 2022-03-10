@@ -11,18 +11,10 @@ import content from "../content";
 //Next js imports
 import Head from "next/head";
 
-// useEffect(() => {
-//   const socket = io("http://localhost:3000");
-//   socket.on("connect", () => {
-//     console.log("YAY you connected");
-//   });
-//   socket.on("receive-coinData", (coinData) => {
-//     console.log(coinData);
-//     setCoinDataState(coinData);
-//   });
-// }, []);
 export async function getServerSideProps() {
   try {
+    const responseBotProfit = await fetch("http://localhost:5000/botProfit");
+    const { profit } = await responseBotProfit.json();
     const responseBTC = await fetch("http://localhost:5000/getBTCData");
     const { BTCPrice } = await responseBTC.json();
     const responseADA = await fetch("http://localhost:5000/getADAData");
@@ -40,6 +32,7 @@ export async function getServerSideProps() {
         ETHPrice,
         USDTPrice,
         coinData,
+        profit,
       },
     };
   } catch (error) {
@@ -53,8 +46,13 @@ export default function Home({
   ETHPrice,
   USDTPrice,
   coinData,
+  profit,
 }) {
   const dispatch = useDispatch();
+  const filteredProfits = profit.filter((p) => {
+    return p.profit || p.profit <= 0;
+  });
+  dispatch({ type: content.types.GET_BOT_PROFITS, payload: filteredProfits });
   dispatch({ type: content.types.GET_BTC_PRICE, payload: BTCPrice });
   dispatch({ type: content.types.GET_ADA_PRICE, payload: ADAPrice });
   dispatch({ type: content.types.GET_ETH_PRICE, payload: ETHPrice });

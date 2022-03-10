@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import content from "../../content";
-import { LineChart, Line } from "recharts";
+import Router from "next/router";
 //Pages
 import {
   BTCGraph,
@@ -25,6 +25,7 @@ import {
   LogoTitle,
   Price,
   Graph,
+  GraphInfo,
 } from "./CoinInfo.style";
 
 const CoinInfo = () => {
@@ -40,6 +41,9 @@ const CoinInfo = () => {
   }, []);
   useEffect(() => {
     dispatch(content.actions.getUSDTPrice());
+  }, []);
+  useEffect(() => {
+    dispatch(content.actions.getCoinData());
   }, []);
 
   const BTCPrice = useSelector((state) => content.selectors.getBTCPrice(state));
@@ -72,6 +76,7 @@ const CoinInfo = () => {
                 height={100}
                 dataKey={"coinData"}
               />
+              <div className="graphInfo">BTC Price Graph</div>
             </Graph>
           </CoinInfoDetails>
           <CoinInfoDetails>
@@ -88,6 +93,7 @@ const CoinInfo = () => {
                 height={100}
                 dataKey={"coinData"}
               />
+              <div className="graphInfo">ETH Price Graph</div>
             </Graph>
           </CoinInfoDetails>
           <CoinInfoDetails>
@@ -104,6 +110,7 @@ const CoinInfo = () => {
                 height={100}
                 dataKey={"coinData"}
               />
+              <div className="graphInfo">ADA Price Graph</div>
             </Graph>
           </CoinInfoDetails>
           <CoinInfoDetails>
@@ -120,10 +127,18 @@ const CoinInfo = () => {
                 height={100}
                 dataKey={"coinData"}
               />
+              <div className="graphInfo">USDT Price Graph</div>
             </Graph>
           </CoinInfoDetails>
         </CoinInfoGrid>
-        <Button text="Coin Info" color="#F72585" className="g-end" />
+        <Button
+          text="Coin Info"
+          color="#F72585"
+          className="g-end"
+          onClick={() => {
+            Router.push("/coins");
+          }}
+        />
       </Content>
     </Wrapper>
   );

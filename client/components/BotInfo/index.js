@@ -1,5 +1,7 @@
 import Router from "next/router";
-
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import content from "../../content";
 //Styles
 import {
   Wrapper,
@@ -16,6 +18,21 @@ import {
 import Button from "../Button";
 
 const BotInfo = () => {
+  const botProfits = useSelector((state) =>
+    content.selectors.getBotProfits(state)
+  );
+  const botLoading = useSelector((state) =>
+    content.selectors.getBotLoading(state)
+  );
+  const botError = useSelector((state) => content.selectors.getBotError(state));
+  const dispatch = useDispatch();
+  console.log(botProfits);
+  const average =
+    botProfits.reduce((a, b) => a + b.profit, 0) / botProfits.length;
+  console.log(average);
+  useEffect(() => {
+    dispatch(content.actions.getBotData());
+  }, [dispatch]);
   return (
     <Wrapper>
       <Content>
@@ -28,10 +45,11 @@ const BotInfo = () => {
           </Info>
           <BotInfoDetails>
             <BotInfoDetailsTotal>Bots Total:</BotInfoDetailsTotal>
-            <BotInfoDetailsRevenue>
-              Bots Total Revenue: $52.2125
-            </BotInfoDetailsRevenue>
-            <BotInfoDetailsLoss>Bots Total Loss: - $5111111</BotInfoDetailsLoss>
+            {!botError && !botLoading && (
+              <BotInfoDetailsRevenue>
+                Bots Total Revenue: {average} &euro;
+              </BotInfoDetailsRevenue>
+            )}
           </BotInfoDetails>
         </BotInfoDiv>
         <Button

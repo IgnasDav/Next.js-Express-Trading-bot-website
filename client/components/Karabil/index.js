@@ -6,7 +6,7 @@ const Karabil = () => {
     <Wrapper>
       <Content href="https://www.blue-yellow.lt/">
         <span>
-          <p>Русский военный корабль, иди на хуй</p>
+          <p>Слава Україні!</p>
         </span>
       </Content>
     </Wrapper>

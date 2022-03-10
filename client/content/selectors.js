@@ -10,3 +10,6 @@ export const getBTCData = (state) => state.content.coin.data.BTC;
 export const getADAData = (state) => state.content.coin.data.ADA;
 export const getETHData = (state) => state.content.coin.data.ETH;
 export const getUSDTData = (state) => state.content.coin.data.USDT;
+export const getBotProfits = (state) => state.content.bot.data;
+export const getBotLoading = (state) => state.content.bot.loading;
+export const getBotError = (state) => state.content.bot.error;

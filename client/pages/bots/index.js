@@ -1,5 +1,11 @@
+import Bot from "../../components/Bot";
+
 const Bots = () => {
-  return <div>Bots</div>;
+  return (
+    <div>
+      <Bot />
+    </div>
+  );
 };
 
 export default Bots;

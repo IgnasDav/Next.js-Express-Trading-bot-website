@@ -21,6 +21,7 @@ export const CoinInfoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  row-gap: 4rem;
   grid-row: 2/3;
   grid-column: 1 /2;
 `;
@@ -57,9 +58,17 @@ export const LogoPic = styled.img`
   margin: 0 1rem 0 1rem;
 `;
 export const Graph = styled.div`
-  /* div > svg > g {
-    height: 1px;
-    display: flex;
-    align-items: center;
-  } */
+  position: relative;
+  :hover .graphInfo {
+    opacity: 1;
+  }
+  .graphInfo {
+    opacity: 0;
+    transition: all 0.2s;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 25rem;
+  }
 `;
+export const GraphInfo = styled.div``;

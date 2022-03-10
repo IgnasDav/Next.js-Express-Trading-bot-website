@@ -2,6 +2,11 @@ import { createReducer } from "@reduxjs/toolkit";
 import * as types from "./types";
 
 const DEFAULT_STATE = {
+  bot: {
+    data: [],
+    loading: false,
+    error: null,
+  },
   coinPrices: {
     BTC: {
       price: 0,
@@ -85,6 +90,15 @@ const contentReducer = createReducer(DEFAULT_STATE, (builder) => {
     })
     .addCase(types.GET_COIN_USDT_ERROR, (state, action) => {
       state.coin.error.USDT = action.payload;
+    })
+    .addCase(types.GET_BOT_PROFITS, (state, action) => {
+      state.bot.data = action.payload;
+    })
+    .addCase(types.GET_BOT_ERROR, (state, action) => {
+      state.bot.error = action.payload;
+    })
+    .addCase(types.GET_BOT_LOADING, (state, action) => {
+      state.bot.loading = action.payload;
     })
     .addDefaultCase((state, action) => {});
 });
