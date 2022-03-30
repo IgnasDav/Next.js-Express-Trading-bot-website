@@ -11,6 +11,8 @@
   "author": "Ignas Davulis",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.1",
+    "ccxt": "^1.77.6",
     "coinbase": "^2.0.8",
     "coinbase-pro": "^0.9.0",
     "commander": "^9.0.0",
@@ -23,6 +25,7 @@
     "nodemon": "^2.0.15",
     "randomstring": "^1.2.2",
     "socket.io": "^4.4.1",
+    "tulind": "^0.8.20",
     "ws": "^8.5.0"
   },
   "devDependencies": {

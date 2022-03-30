@@ -1,6 +1,7 @@
 "use strict";
 import { createServer } from "http";
 import cors from "cors";
+import init from "./alpacaBot/index.js";
 import { program } from "commander";
 import {
   COINBASE_API_KEY,
@@ -253,3 +254,4 @@ app.get("/runBot", async (req, res) => {
 httpServer.listen(PORT, () => {
   console.log(`App listening on port: ${PORT}`);
 });
+init();

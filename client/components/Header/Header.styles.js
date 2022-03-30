@@ -10,7 +10,7 @@ export const Content = styled.div`
   width: var(--width);
   justify-content: space-between;
   align-items: center;
-  color: var(--white);
+  color: var(--whites);
   font-size: 2.4rem;
   text-transform: uppercase;
 `;
@@ -55,7 +55,7 @@ export const Nav = styled.nav`
         left: 0;
         right: 0;
         height: 3px;
-        background: var(--white);
+        background: var(--pink);
         bottom: 5px;
         transition: all 0.2s ease-out;
       }
