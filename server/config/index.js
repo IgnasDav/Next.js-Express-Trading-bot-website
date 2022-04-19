@@ -15,3 +15,4 @@ export const BINANCE_API_KEY = process.env.BINANCE_API_KEY;
 export const BINANCE_SECRET_KEY = process.env.BINANCE_SECRET_KEY;
 export const ALPACA_API_KEY = process.env.ALPACA_API_KEY;
 export const ALPACA_SECRET_KEY = process.env.ALPACA_SECRET_KEY;
+export const COINBASE_PRO_WSS = process.env.COINBASE_PRO_WSS;

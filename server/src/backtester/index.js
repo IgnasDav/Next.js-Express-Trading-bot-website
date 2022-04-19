@@ -6,9 +6,10 @@ import Postion from "../models/position/index.js";
 import colors from "colors";
 import { MongoClient } from "mongodb";
 import { MONGO_CONNECTION_STRING } from "../../config/index.js";
+import { Factory } from "../strategy/index.js";
 
 class Backtester {
-  constructor({ start, end, interval, product, client }) {
+  constructor({ start, end, interval, product, client, strategyType }) {
     this.startTime = start;
     this.endTime = end;
     this.interval;
@@ -20,11 +21,12 @@ class Backtester {
       interval,
       product,
     });
+    this.strategyType = strategyType;
   }
   async start() {
     try {
       const history = await this.historical.getData();
-      this.strategy = new SimpleStrategy({
+      this.strategy = Factory(this.strategyType, {
         onBuySignal: (x) => {
           this.onBuySignal(x);
         },

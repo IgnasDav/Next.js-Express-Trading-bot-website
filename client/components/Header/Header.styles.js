@@ -18,10 +18,10 @@ export const Nav = styled.nav`
   ul {
     display: flex;
     list-style: none;
+    color: var(--white);
     align-items: center;
     a {
       text-decoration: none;
-      color: var(--white);
     }
     li {
       margin: 1rem;

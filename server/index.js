@@ -19,6 +19,7 @@ import Historical from "./src/historical/index.js";
 import Backtester from "./src/backtester/index.js";
 //Helpers
 import getCoinPrice from "./getCoinPrice/index.js";
+import Ticker from "./src/ticker/index.js";
 
 const now = new Date();
 const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1e3);
@@ -42,6 +43,7 @@ program
     yesterday
   )
   .option("-e, --end [end]", "End time in unix seconds", toDate, now)
+  .option("-t, --strategy [strategy]", "Strategy Type", "macd")
   .parse(process.argv);
 
 const app = express();
@@ -219,16 +221,22 @@ app.get("/getCoinData", async (req, res) => {
   }
 });
 const main = async function () {
-  const { interval, product, start, end } = program.opts();
-
-  const tester = new Backtester({
-    start,
-    end,
+  const { interval, product, start, end, strategy } = program.opts();
+  const ticker = new Ticker({
     product,
-    interval,
+    onTick: console.log,
+    onError: console.log,
   });
+  ticker.start();
+  // const tester = new Backtester({
+  //   start,
+  //   end,
+  //   product,
+  //   interval,
+  //   strategyType: strategy,
+  // });
 
-  await tester.start();
+  // await tester.start();
 };
 app.get("/botProfit", async (req, res) => {
   try {
@@ -243,15 +251,16 @@ app.get("/botProfit", async (req, res) => {
     res.status(500).send({ success: false, error: "Internal server error" });
   }
 });
-app.get("/runBot", async (req, res) => {
-  try {
-    main();
-    res.send({ success: true, message: "Bot Running" });
-  } catch (error) {
-    res.status(500).send({ success: false, error: "Internal server error" });
-  }
-});
+// app.get("/runBot", async (req, res) => {
+//   try {
+//     main();
+//     res.send({ success: true, message: "Bot Running" });
+//   } catch (error) {
+//     res.status(500).send({ success: false, error: "Internal server error" });
+//   }
+// });
 httpServer.listen(PORT, () => {
   console.log(`App listening on port: ${PORT}`);
 });
 init();
+main();

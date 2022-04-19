@@ -1,3 +1,2 @@
 import tulind from "tulind";
-
-console.log(tulind.indicators.macds);
+console.log(tulind.indicators.macd);
